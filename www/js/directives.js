@@ -103,8 +103,15 @@ angular.module('ionic.weather.directives', [])
               $scope.lowTemp = Math.floor(current.daily.data[0].temperatureMin);
             }
           }
+          if ($scope.currentTemp < 35)
+        	  { $scope.realTemp = "It's Cold, stay inside!";}
+          else
+        	  { $scope.realTemp = "It's kind of chilli!";}
+          if ($scope.currentTemp > 55)
+    	  { $scope.realTemp = "Its not too bad!";}
+          if ($scope.currentTemp > 65)
+    	  { $scope.realTemp = "It's great, go outside!";}
           
-          $scope.realTemp = "It's Cold, stay inside!";
           var imgCount = 3;
           var dir = 'images/';
           var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
