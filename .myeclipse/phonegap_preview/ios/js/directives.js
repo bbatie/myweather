@@ -103,8 +103,19 @@ angular.module('ionic.weather.directives', [])
               $scope.lowTemp = Math.floor(current.daily.data[0].temperatureMin);
             }
           }
+          if ($scope.currentTemp < 55)
+    	  { $scope.realTemp = "It's kind of chilli!";}
+          if ($scope.currentTemp < 35)
+        	  { $scope.realTemp = "It's Cold, stay inside!";}
+          if ($scope.currentTemp < 25)
+    	  { $scope.realTemp = "Very cold, coco time!";}
+          if ($scope.currentTemp < 20)
+    	  { $scope.realTemp = "F**k it, I'm moving!";}
+          if ($scope.currentTemp > 54)
+    	  { $scope.realTemp = "Its not too bad!";}
+          if ($scope.currentTemp > 65)
+    	  { $scope.realTemp = "It's great, go outside!";}
           
-          $scope.realTemp = "It's Cold, stay inside!";
           var imgCount = 3;
           var dir = 'images/';
           var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
@@ -114,7 +125,7 @@ angular.module('ionic.weather.directives', [])
                   images[3] = "http://www.freelargeimages.com/wp-content/uploads/2014/12/Cool_backgrounds_iphone-9.jpg",
           document.getElementById("wrapper").style.backgroundImage = "url(" + images[randomCount] + ")"; 
             
-          if ($scope.currentTemp < 40){$scope.currentTemp = $scope.realTemp + " " + $scope.currentTemp}
+          if ($scope.currentTemp < 40){$scope.currentTemp = $scope.currentTemp}
         });
 
       // Delay so we are in the DOM and can calculate sizes

@@ -27,6 +27,7 @@
       <background-cycler class="bg-fade"></background-cycler>
 
       <ion-header-bar id="header" class="bar bar-header bar-clear">
+       <button ng-click="showNew()" class="button button-icon"><i class="icon ion-help"></i></button>
         <h1 class="title">
           <span class="city"><i id="city-nav-icon" class="icon ion-navigate"></i> {{currentLocationString}}</span><br>
           <current-time localtz="current.local_tz_short"></current-time>
@@ -65,5 +66,32 @@
         </ion-content>
       </div>
     </script>
+    
+        <script id="new.html" type="text/ng-template">
+      <div id="new-modal" class="modal" ng-controller="newCtrl">
+        <ion-header-bar class="bar bar-header bar-dark">
+          <h1 class="title">New</h1>
+    <button class="button button-clear" ng-click="closeNew()">Close</button>
+        </ion-header-bar>
+        <ion-content has-header="true">
+          <div class="padding">
+          
+<div class="card">
+  <div class="item item-divider">
+    I'm a Header in a Card!
+  </div>
+  <div class="item item-text-wrap">
+    This is a basic Card with some text.
+  </div>
+  <div class="item item-divider">
+    I'm a Footer in a Card!
+  </div>
+</div>
+
+          </div>
+        </ion-content>
+      </div>
+    </script>
+    
   </body>
 </html>

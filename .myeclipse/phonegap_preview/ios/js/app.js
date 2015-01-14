@@ -94,7 +94,34 @@ angular.module('ionic.weather', ['ionic', 'ionic.weather.services', 'ionic.weath
   };
 
   $scope.refreshData();
+  
+  
+  $scope.showNew = function() {
+	    if(!$scope.newModal) {
+	     // Load the modal from the given template URL
+	      $ionicModal.fromTemplateUrl('new.html', function(modal) {
+	        $scope.newModal = modal;
+	        $scope.newModal.show();
+	      }, {
+	        // The animation we want to use for the modal entrance
+	        animation: 'slide-in-up'
+	      });
+	    } else {
+	      $scope.newModal.show();
+	    }
+	  };
+  
+  
+  
+  
 })
+
+
+
+.controller('newCtrl', function($scope) {
+	
+})
+
 
 .controller('SettingsCtrl', function($scope, Settings) {
   $scope.settings = Settings.getSettings();
